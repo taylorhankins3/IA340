@@ -34,5 +34,21 @@ values('s1@jmu.edu','c1'),
 	('s3@jmu.edu','c3')
 
 -- Q2.5
+-- Q1: Do you need to modify the course or professor table first? Why?
+-- The professor table first, because the course table references the professor email.
+insert into professor(p_name, p_email, office)
 
+values('p3','p3@jmu.edu','o3')
 
+insert into course(c_number, c_name, room, p_email)
+values('c4','facebook','r1','p3@jmu.edu')
+
+-- Q2.6
+-- Q2: Do we need to modify the course table first or the professor table first?
+-- Need to update the course table first because we need to change the course so that we can delete p1.
+update course 
+set p_email = 'p3@jmu.edu'
+where p_email = 'p1@jmu.edu';
+
+delete from professor
+where p_email = 'p1@jmu.edu'
